@@ -7,6 +7,13 @@ export function generateStaticParams() {
   return productOfferings.map((item) => ({ slug: item.slug }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const item = productOfferingMap[slug];
+  if (!item) return {};
+  return { title: item.name, description: `${item.name} — ${item.category}. Trinity Enterprises product portfolio and enquiry page.`, alternates: { canonical: `/products/${item.slug}` } };
+}
+
 const accent = {
   amber: { glow: "bg-[#e5ad28]/14", text: "text-[#b77b06]", soft: "bg-[#fff4d4]", line: "border-[#e5ad28]/25" },
   cyan: { glow: "bg-[#18b7c9]/14", text: "text-[#0f95a5]", soft: "bg-[#ddf7fa]", line: "border-[#18b7c9]/25" },
@@ -78,6 +85,16 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <div className="mt-12 flex flex-col gap-4 rounded-[2rem] bg-[#e5ad28] p-7 md:flex-row md:items-center md:justify-between md:p-10">
             <div><p className="text-[9px] font-extrabold uppercase tracking-[.2em] text-[#081923]/55">Ready to discuss a requirement?</p><h2 className="mt-3 text-3xl font-semibold tracking-[-.04em] md:text-4xl">Let&apos;s turn this portfolio page into the real product story.</h2></div>
             <div className="flex flex-col gap-3 sm:flex-row"><a href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#081923] px-6 py-4 text-sm font-bold text-white">Contact Trinity <ArrowRight size={16} /></a><Link href="/products" className="inline-flex items-center justify-center rounded-full border border-[#081923]/20 px-6 py-4 text-sm font-bold text-[#081923]">Browse all products</Link></div>
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {productOfferings.filter((other) => other.slug !== item.slug).slice(0, 3).map((other) => (
+              <Link key={other.slug} href={`/products/${other.slug}`} className="group rounded-[1.5rem] border border-black/10 bg-white p-5 transition hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(11,24,33,.08)]">
+                <p className="font-mono text-[10px] text-black/25">{other.number}</p>
+                <p className="mt-8 text-lg font-semibold tracking-[-.03em]">{other.name}</p>
+                <span className="mt-3 inline-flex items-center gap-2 text-xs font-bold text-black/45">Explore <ArrowRight size={13} className="transition group-hover:translate-x-1"/></span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

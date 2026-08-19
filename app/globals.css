@@ -341,3 +341,6 @@ footer { background:
     scrollbar-color: rgba(255,255,255,.16) transparent;
   }
 }
+
+/* V9 production polish */
+.skip-link{position:fixed;left:16px;top:16px;z-index:200;transform:translateY(-160%);border-radius:999px;background:#e5ad28;color:#081923;padding:.7rem 1rem;font-size:12px;font-weight:800;transition:transform .2s ease}.skip-link:focus{transform:translateY(0);outline:none;box-shadow:0 0 0 4px rgba(24,183,201,.24)}:focus-visible{outline:2px solid #18b7c9;outline-offset:3px}body{overflow-x:hidden}button,a,input,textarea,select{-webkit-tap-highlight-color:transparent}

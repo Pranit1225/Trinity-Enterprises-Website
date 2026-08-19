@@ -11,6 +11,7 @@ import {
   useTransform,
 } from "motion/react";
 import { productOfferings } from "@/lib/products";
+import { ContactForm } from "@/components/contact-form";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -273,7 +274,6 @@ const MotionLink = motion(Link);
 export function TrinityLanding() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [activeArea, setActiveArea] = useState(0);
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 700], [0, 100]);
@@ -281,17 +281,14 @@ export function TrinityLanding() {
 
   const closeMenu = () => setMenuOpen(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setSubmitted(true);
-  };
 
   return (
     <>
       <ScrollProgress />
       <CursorFX />
 
-      <main className="relative overflow-hidden bg-[#f5f3ee] text-[#111820]">
+      <a href="#main-content" className="skip-link">Skip to content</a>
+      <main id="main-content" className="relative overflow-hidden bg-[#f5f3ee] text-[#111820]">
         <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6 md:pt-4">
           <div className="mx-auto flex max-w-[1380px] items-center justify-between rounded-full border border-white/10 bg-[#091720]/90 px-3 py-2 shadow-2xl shadow-black/20 backdrop-blur-2xl md:px-5 md:py-2.5">
             <a
@@ -325,6 +322,7 @@ export function TrinityLanding() {
               </a>
               <div className="relative">
                 <button
+                  type="button" aria-expanded={productsOpen} aria-haspopup="menu"
                   className="nav-link flex items-center gap-1"
                   onClick={() => setProductsOpen((v) => !v)}
                 >
@@ -342,7 +340,7 @@ export function TrinityLanding() {
                       initial={{ opacity: 0, y: 8, scale: 0.98 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                      className="products-dropdown-scroll absolute right-0 top-11 w-[24rem] rounded-2xl border border-white/10 bg-[#10232e] p-2 shadow-2xl"
+                      role="menu" className="products-dropdown-scroll absolute right-0 top-11 w-[24rem] rounded-2xl border border-white/10 bg-[#10232e] p-2 shadow-2xl"
                     >
                       {productOfferings.map((partner) => (
                         <a
@@ -371,6 +369,7 @@ export function TrinityLanding() {
             </MagneticButton>
 
             <button
+              type="button" aria-expanded={menuOpen} aria-controls="mobile-navigation"
               aria-label="Toggle navigation"
               className="rounded-full p-2 text-white md:hidden"
               onClick={() => setMenuOpen((v) => !v)}
@@ -385,7 +384,7 @@ export function TrinityLanding() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="mx-1 mt-2 rounded-3xl border border-white/10 bg-[#091720]/96 p-3 shadow-2xl backdrop-blur-2xl md:hidden"
+                id="mobile-navigation" className="mx-1 mt-2 rounded-3xl border border-white/10 bg-[#091720]/96 p-3 shadow-2xl backdrop-blur-2xl md:hidden"
               >
                 {[
                   ["Home", "#home"],
@@ -996,9 +995,7 @@ export function TrinityLanding() {
                     Have a project in mind?
                   </h2>
                   <p className="mt-7 max-w-md text-base leading-7 text-[#0b1821]/62">
-                    Tell us what you&apos;re working on. The form is currently a
-                    development placeholder and will be connected to the final
-                    company inbox before launch.
+                    Tell us what you&apos;re working on. The enquiry form is connected to the site backend and is ready for the company inbox. Final delivery settings can be enabled from the deployment environment.
                   </p>
                 </motion.div>
                 <motion.div
@@ -1033,82 +1030,11 @@ export function TrinityLanding() {
                     <br />
                     NIBM Kondhwa Road, Pune-411048, Maharashtra, India.
                   </p>
+                  <div className="flex flex-wrap gap-3 pt-2"><a href="https://wa.me/919881153232" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#0b1821] px-4 py-2.5 text-xs font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#1688c7]">WhatsApp Trinity <ArrowRight size={13}/></a><a href="tel:+919881153232" className="inline-flex items-center gap-2 rounded-full border border-[#0b1821]/20 px-4 py-2.5 text-xs font-bold text-[#0b1821]">Call office <ArrowRight size={13}/></a></div>
                 </motion.div>
               </Reveal>
 
-              <motion.form
-                onSubmit={handleSubmit}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                className="rounded-[2rem] bg-[#0b1821] p-6 text-white shadow-2xl shadow-[#0b1821]/20 md:p-9"
-              >
-                {submitted ? (
-                  <div className="flex min-h-[430px] flex-col items-center justify-center text-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#d9a62e] text-[#0b1821]">
-                      <Check />
-                    </div>
-                    <h3 className="mt-6 text-2xl font-semibold">
-                      Enquiry captured.
-                    </h3>
-                    <p className="mt-2 max-w-sm text-sm leading-6 text-white/45">
-                      Development placeholder only. Next step: connect this form
-                      to the company Gmail workflow.
-                    </p>
-                    <button
-                      type="button"
-                      onClick={() => setSubmitted(false)}
-                      className="mt-6 rounded-full border border-white/15 px-5 py-3 text-sm"
-                    >
-                      Send another
-                    </button>
-                  </div>
-                ) : (
-                  <>
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p className="text-[9px] font-bold uppercase tracking-[.2em] text-[#d9a62e]">
-                          Enquiry form
-                        </p>
-                        <p className="mt-2 text-sm text-white/40">
-                          Short, direct and ready for backend integration.
-                        </p>
-                      </div>
-                      <div className="hidden h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 sm:flex">
-                        <Send size={15} className="text-[#d9a62e]" />
-                      </div>
-                    </div>
-                    <div className="mt-8 grid gap-5 sm:grid-cols-2">
-                      <Field label="Name" name="name" placeholder="Your name" />
-                      <Field
-                        label="Company"
-                        name="company"
-                        placeholder="Company name"
-                      />
-                      <Field
-                        label="Email"
-                        name="email"
-                        type="email"
-                        placeholder="you@company.com"
-                      />
-                      <Field label="Phone" name="phone" placeholder="+91" />
-                    </div>
-                    <div className="mt-5">
-                      <label className="field-label">Message</label>
-                      <textarea
-                        name="message"
-                        rows={6}
-                        required
-                        placeholder="Tell us briefly about your requirement..."
-                        className="field-input resize-none"
-                      />
-                    </div>
-                    <button className="mt-6 w-full rounded-full bg-[#d9a62e] px-6 py-4 text-sm font-bold text-[#0b1821] transition hover:-translate-y-0.5 hover:bg-white">
-                      Send enquiry <Send className="ml-2 inline" size={16} />
-                    </button>
-                  </>
-                )}
-              </motion.form>
+              <ContactForm />
             </div>
 
             <div className="mt-16 overflow-hidden rounded-[2rem] border border-[#0b1821]/15 bg-[#0b1821] p-2 shadow-2xl shadow-[#0b1821]/15">
@@ -1183,7 +1109,7 @@ export function TrinityLanding() {
                   Status
                 </p>
                 <p className="mt-3 text-[#d9a62e]">
-                  Development version · Content placeholders active
+                  V9 build · Content placeholders active · Image pass pending
                 </p>
               </div>
             </div>
@@ -1208,7 +1134,7 @@ export function TrinityLanding() {
             </div>
             <div className="mt-8 flex flex-col gap-2 text-[10px] uppercase tracking-[.18em] text-white/25 sm:flex-row sm:items-center sm:justify-between">
               <span>©2020 Trinity Enterprises</span>
-              <span>Website rebuild · Development version</span>
+              <span>Website rebuild · V9 build</span>
             </div>
           </div>
         </footer>
@@ -1217,31 +1143,3 @@ export function TrinityLanding() {
   );
 }
 
-function Field({
-  label,
-  name,
-  placeholder,
-  type = "text",
-}: {
-  label: string;
-  name: string;
-  placeholder: string;
-  type?: string;
-}) {
-  return (
-    <div>
-      <label className="field-label" htmlFor={name}>
-        {label}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        required
-        suppressHydrationWarning
-        className="field-input"
-        placeholder={placeholder}
-      />
-    </div>
-  );
-}

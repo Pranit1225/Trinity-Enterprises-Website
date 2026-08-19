@@ -1,18 +1,4 @@
-import type { Metadata } from "next";
-import "./globals.css";
-
-export const metadata: Metadata = {
-  title: "Trinity Enterprises | Industrial & Infrastructure Solutions",
-  description:
-    "Trinity Enterprises — authorised construction, mining equipment and industrial solutions, with international trade services.",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="en">
-      <body suppressHydrationWarning>{children}</body>
-    </html>
-  );
-}
+import type { Metadata } from "next"; import "./globals.css"; import { Analytics } from "@/components/analytics";
+const siteUrl=process.env.NEXT_PUBLIC_SITE_URL||"https://www.trinityentp.com";
+export const metadata:Metadata={metadataBase:new URL(siteUrl),title:{default:"Trinity Enterprises | Construction & Mining Equipment",template:"%s | Trinity Enterprises"},description:"Trinity Enterprises is an authorised dealer in construction and mining equipment, industrial solutions, construction chemicals, power systems and international trade services.",applicationName:"Trinity Enterprises",keywords:["Trinity Enterprises","construction equipment","mining equipment","crushers","road equipment","construction chemicals","DG sets","imports exports","Pune","Maharashtra"],alternates:{canonical:"/"},openGraph:{title:"Trinity Enterprises | Construction & Mining Equipment",description:"Construction, mining, road, industrial and international trade solutions.",url:siteUrl,siteName:"Trinity Enterprises",locale:"en_IN",type:"website"},twitter:{card:"summary_large_image",title:"Trinity Enterprises",description:"Construction, mining and industrial solutions from Pune."},robots:{index:true,follow:true},verification:process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?{google:process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}:undefined};
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body suppressHydrationWarning>{children}<Analytics/></body></html>}

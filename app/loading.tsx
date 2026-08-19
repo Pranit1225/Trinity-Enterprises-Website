@@ -1,0 +1,1 @@
+export default function Loading(){return <main className="flex min-h-screen items-center justify-center bg-[#081923] text-white"><div className="text-center"><div className="mx-auto h-12 w-12 animate-pulse rounded-full bg-[#e5ad28]"/><p className="mt-5 text-[10px] font-bold uppercase tracking-[.25em] text-white/40">Loading Trinity</p></div></main>}

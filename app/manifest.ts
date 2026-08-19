@@ -1,0 +1,1 @@
+import type { MetadataRoute } from "next"; export default function manifest():MetadataRoute.Manifest{return{name:"Trinity Enterprises",short_name:"Trinity",description:"Construction, mining and industrial equipment solutions.",start_url:"/",display:"standalone",background_color:"#081923",theme_color:"#081923",lang:"en-IN"}}

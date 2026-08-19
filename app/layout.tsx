@@ -7,10 +7,12 @@ export const metadata: Metadata = {
     "Trinity Enterprises — authorised construction, mining equipment and industrial solutions, with international trade services.",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

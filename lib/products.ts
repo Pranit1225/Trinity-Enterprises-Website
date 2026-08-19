@@ -28,21 +28,8 @@ export const productOfferings: ProductOffering[] = [
     specs: ["Model / series — placeholder", "Capacity — placeholder", "Feed size — placeholder", "Power — placeholder"],
   },
   {
-    slug: "mccloskey-international",
-    number: "02",
-    name: "McCloskey International",
-    eyebrow: "MOBILE CRUSHING + SCREENING",
-    summary: "Placeholder portfolio page for McCloskey International mobile and stationary solutions.",
-    category: "Mobile & Stationary Equipment",
-    accent: "cyan",
-    whatItIs: "A Trinity portfolio page for McCloskey International solutions, with final equipment families, use cases, images and technical literature to be added.",
-    whatItDoes: ["Supports mobile crushing workflows", "Supports screening and aggregate processing", "Designed around demanding site requirements"],
-    applications: ["Quarries", "Road projects", "Recycling applications", "Mining and aggregates"],
-    specs: ["Equipment model — placeholder", "Throughput — placeholder", "Engine / power — placeholder", "Operating dimensions — placeholder"],
-  },
-  {
     slug: "mechtech-inframine",
-    number: "03",
+    number: "02",
     name: "MechTech Inframine",
     eyebrow: "CRUSHING + MINING EQUIPMENT",
     summary: "Placeholder portfolio page for MechTech Inframine equipment and solutions.",
@@ -55,7 +42,7 @@ export const productOfferings: ProductOffering[] = [
   },
   {
     slug: "capious-roadtech",
-    number: "04",
+    number: "03",
     name: "CAPIOUS Roadtech Pvt. Ltd.",
     eyebrow: "ROAD + ASPHALT EQUIPMENT",
     summary: "Placeholder page for CAPIOUS Roadtech plant and road construction equipment.",
@@ -68,7 +55,7 @@ export const productOfferings: ProductOffering[] = [
   },
   {
     slug: "saagmo-air-classifier",
-    number: "05",
+    number: "04",
     name: "SAAGMO Air Classifier",
     eyebrow: "AIR CLASSIFICATION",
     summary: "Placeholder page for SAAGMO air classification solutions.",
@@ -81,7 +68,7 @@ export const productOfferings: ProductOffering[] = [
   },
   {
     slug: "fg-wilson-caterpillar",
-    number: "06",
+    number: "05",
     name: "FG Wilson DG Sets — Caterpillar Brand",
     eyebrow: "POWER GENERATION",
     summary: "Placeholder page for FG Wilson diesel generator sets represented through Trinity's power portfolio.",
@@ -95,7 +82,7 @@ export const productOfferings: ProductOffering[] = [
   },
   {
     slug: "berger-paints",
-    number: "07",
+    number: "06",
     name: "Berger Paints",
     eyebrow: "COATINGS + PROTECTIVE SOLUTIONS",
     summary: "Placeholder page for Berger Paints solutions in Trinity's industrial and construction portfolio.",
@@ -108,7 +95,7 @@ export const productOfferings: ProductOffering[] = [
   },
   {
     slug: "basf-master-builders-solutions",
-    number: "08",
+    number: "07",
     name: "BASF | Master Builders Solutions",
     eyebrow: "CONSTRUCTION CHEMICALS + ADMIXTURES",
     summary: "Placeholder page for BASF / Master Builders Solutions construction chemicals and admixtures.",
@@ -122,7 +109,7 @@ export const productOfferings: ProductOffering[] = [
   },
   {
     slug: "ika-chemicals",
-    number: "09",
+    number: "08",
     name: "IKA Chemicals",
     eyebrow: "CHEMICAL SOLUTIONS",
     summary: "Placeholder page for IKA Chemicals offerings represented by Trinity Enterprises.",
@@ -135,7 +122,7 @@ export const productOfferings: ProductOffering[] = [
   },
   {
     slug: "trinity-imports-exports",
-    number: "10",
+    number: "09",
     name: "Trinity Imports / Exports",
     eyebrow: "INTERNATIONAL TRADE SOLUTIONS",
     summary: "A dedicated Trinity international trade solution for sourcing, importing and exporting relevant industrial products and equipment.",

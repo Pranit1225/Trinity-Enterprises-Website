@@ -38,8 +38,12 @@ export default function ProductsPage() {
       <section className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[1380px]">
           <div className="grid gap-5 md:grid-cols-2">
-            {productOfferings.map((item) => (
-              <Link key={item.slug} href={`/products/${item.slug}`} className="group relative overflow-hidden rounded-[2rem] border border-black/10 bg-white p-7 shadow-[0_18px_60px_rgba(11,24,33,.06)] transition hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(11,24,33,.11)] md:p-9">
+            {productOfferings.map((item, index) => (
+              <Link
+                key={item.slug}
+                href={`/products/${item.slug}`}
+                className={`group relative overflow-hidden rounded-[2rem] border border-black/10 bg-white p-7 shadow-[0_18px_60px_rgba(11,24,33,.06)] transition hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(11,24,33,.11)] md:p-9 ${index === productOfferings.length - 1 ? "md:col-span-2" : ""}`}
+              >
                 <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-black/[.025] blur-2xl transition group-hover:scale-125" />
                 <div className="relative flex items-start justify-between gap-6">
                   <div className={`flex h-11 w-11 items-center justify-center rounded-2xl ${accentClasses[item.accent]}`}>

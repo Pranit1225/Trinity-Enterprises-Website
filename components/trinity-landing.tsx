@@ -226,7 +226,7 @@ function Reveal({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.18 }}
+      viewport={{ once: false, amount: 0.18 }}
       variants={{
         visible: {
           transition: { staggerChildren: 0.06, delayChildren: delay },
@@ -535,7 +535,7 @@ export function TrinityLanding() {
                       Portfolio
                     </p>
                     <p className="mt-2 text-2xl font-semibold text-[#d9a62e]">
-                      07
+                      09
                     </p>
                     <p className="text-[9px] uppercase tracking-[.14em] text-white/30">
                       named partners
@@ -614,7 +614,7 @@ export function TrinityLanding() {
                     key={item.number}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.15 }}
+                    viewport={{ once: false, amount: 0.15 }}
                     transition={{ delay: index * 0.06 }}
                     className={`capability-card capability-${item.accent} group relative min-h-[310px] overflow-hidden border-black/10 p-7 transition md:p-9 ${index < 2 ? "border-b" : ""} ${index === 2 ? "border-b" : ""} ${index % 2 === 0 && index !== 4 ? "md:border-r" : ""} ${index === 4 ? "md:col-span-2" : ""}`}
                   >
@@ -861,16 +861,16 @@ export function TrinityLanding() {
                   and sand air classifiers.
                 </p>
                 <p className="mt-6 max-w-3xl text-base leading-7 text-white/38">
-                  The portfolio includes Metso, McCloskey, MechTech Inframine,
-                  Berger Paints, IKA Chemicals, Caterpillar and SAAGMO
-                  Technologies.
+                  The portfolio includes Metso, MechTech Inframine, CAPIOUS Roadtech, SAAGMO
+                  Technologies, FG Wilson DG Sets, Berger Paints, BASF / Master Builders Solutions,
+                  IKA Chemicals and Trinity Imports & Exports.
                 </p>
               </motion.div>
             </Reveal>
 
             <div className="mt-16 grid border-y border-white/10 md:grid-cols-4">
               {[
-                ["10", "Portfolio offerings"],
+                ["09", "Portfolio offerings"],
                 ["05", "Solution groups"],
                 ["04", "Operating areas"],
                 ["01", "Pune office base"],
@@ -879,7 +879,7 @@ export function TrinityLanding() {
                   key={l}
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: i * 0.08 }}
                   className="border-white/10 px-0 py-8 md:border-r md:px-8 first:md:pl-0 last:md:border-r-0"
                 >
@@ -956,7 +956,7 @@ export function TrinityLanding() {
                     key={n as string}
                     initial={{ opacity: 0, y: 18 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
+                    viewport={{ once: false, amount: 0.2 }}
                     transition={{ delay: i * 0.06 }}
                     className="group bg-white p-7 md:p-8"
                   >
@@ -1040,7 +1040,7 @@ export function TrinityLanding() {
                 onSubmit={handleSubmit}
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 className="rounded-[2rem] bg-[#0b1821] p-6 text-white shadow-2xl shadow-[#0b1821]/20 md:p-9"
               >
                 {submitted ? (

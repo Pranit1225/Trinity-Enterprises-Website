@@ -1,6 +1,6 @@
-# Trinity Enterprises Website — V9
+# Trinity Enterprises Website — V10
 
-V9 is the current master codebase. Run with:
+V10 is the current master codebase. V9 functionality is preserved, and the project is additionally prepared for Cloudflare Workers/OpenNext deployment with production environment configuration and friendlier contact-form failure states. Run with:
 
 ```powershell
 npm.cmd install

@@ -1,18 +1,33 @@
-# Trinity Enterprises — Landing Page V2
+# Trinity Enterprises — Landing V5
 
-A responsive, animated landing page prototype built with Next.js, TypeScript, Tailwind CSS, Motion, and Lucide.
+Premium responsive landing-page rebuild for Trinity Enterprises.
 
-## V2 interaction layer
+## Stack
 
-- Desktop custom cursor with magnetic-style ring response over interactive elements
-- Cursor-reactive hero spotlight and background grid parallax
-- Ambient industrial glow, orbit rings, scanline, and subtle grain texture
-- Cursor-reactive section lighting on desktop
-- Touch/mobile-safe behavior: custom cursor and pointer-only effects are disabled on coarse pointers
-- Reduced-motion support
-- Existing placeholder content intentionally remains marked for later replacement
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Motion for React
+- Lucide React
 
-## Run locally
+## Current state
+
+- Full landing-page visual system
+- Responsive mobile navigation
+- Desktop-native cursor with subtle aura
+- Scroll progress indicator
+- Cursor-reactive hero lighting/grid
+- Animated machinery placeholder (no real imagery yet)
+- Partner marquee
+- Interactive industry focus area
+- Capability cards
+- About / company positioning
+- Why Trinity proof-point framework
+- Contact form UI with development-only success state
+- Office map + GPS directions
+- Existing legal/trademark disclaimer retained
+
+## Run
 
 ```bash
 npm.cmd install
@@ -21,13 +36,12 @@ npm.cmd run dev
 
 Open http://localhost:3000.
 
-For PowerShell environments that block `npm.ps1`, use `npm.cmd` as shown above.
+## Next production steps
 
-## Production plan
-
-1. Replace placeholder copy and statistics with verified Trinity Enterprises information.
-2. Replace the generated machinery visual with approved company photography.
-3. Build Products & Services pages.
-4. Connect the contact form to a secure Cloudflare Function and email delivery workflow.
-5. Add analytics and Search Console.
-6. Push to GitHub and deploy through Cloudflare.
+1. Replace visual placeholders with approved Trinity machinery and brand assets.
+2. Replace placeholder copy/statistics with verified company information.
+3. Connect the contact form to the company inbox through the Cloudflare backend.
+4. Add Google/Cloudflare analytics and Search Console.
+5. Build the Products & Services detail pages.
+6. Run production accessibility, performance and mobile QA.
+7. Deploy through GitHub + Cloudflare and point the existing domain.

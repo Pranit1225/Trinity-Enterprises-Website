@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Trinity Enterprises | Industrial & Infrastructure Solutions",
   description:
-    "Placeholder landing page for Trinity Enterprises — industrial machinery, construction, mining and infrastructure solutions.",
+    "Trinity Enterprises — authorised construction, mining equipment and industrial solutions, with international trade services.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

@@ -45,3 +45,13 @@ Open http://localhost:3000.
 5. Build the Products & Services detail pages.
 6. Run production accessibility, performance and mobile QA.
 7. Deploy through GitHub + Cloudflare and point the existing domain.
+
+
+## V7 portfolio pages
+
+The site now includes:
+- `/products` — full Products & Services portfolio index
+- `/products/[slug]` — reusable detail-page template for every current portfolio selection
+- Trinity Imports / Exports is included as both a landing-page solution and a dedicated product/service page
+
+All product technical specifications, exact model data and photography remain clearly marked as placeholders until verified source material is supplied.

@@ -328,3 +328,16 @@ footer { background:
     #091720;
   }
 }
+
+/* V7 — dedicated accent for the new global trade solution card */
+.capability-mint { --card-wash: rgba(85,201,164,.16); --card-accent: #238e6c; --card-soft: #e4faf2; }
+
+/* Give the expanded products dropdown enough room for the full Trinity portfolio. */
+@media (min-width: 768px) {
+  .products-dropdown-scroll {
+    max-height: min(70vh, 560px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,.16) transparent;
+  }
+}

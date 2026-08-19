@@ -9,6 +9,7 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
+import { productOfferings } from "@/lib/products";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -32,15 +33,7 @@ import {
   Zap,
 } from "lucide-react";
 
-const partners = [
-  "Metso",
-  "McCloskey International",
-  "MechTech Inframine",
-  "Berger Paints",
-  "IKA Chemicals",
-  "Caterpillar",
-  "SAAGMO Technologies",
-];
+const partners = productOfferings.map((item) => item.name);
 
 const capabilities = [
   {
@@ -78,6 +71,15 @@ const capabilities = [
     copy: "Placeholder product copy — final brands, specifications and solution descriptions will be added before launch.",
     icon: Zap,
     accent: "coral",
+  },
+  {
+    number: "05",
+    eyebrow: "GLOBAL TRADE + SOURCING",
+    title: "Trinity Imports & Exports",
+    subtitle: "International trade solutions",
+    copy: "A dedicated pathway for international sourcing, imports and exports alongside Trinity's industrial equipment portfolio. Country coverage, trade categories and documentation support will be added before launch.",
+    icon: Globe2,
+    accent: "mint",
   },
 ];
 
@@ -235,12 +237,12 @@ export function TrinityLanding() {
                       initial={{ opacity: 0, y: 8, scale: 0.98 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                      className="absolute right-0 top-11 w-80 rounded-2xl border border-white/10 bg-[#10232e] p-2 shadow-2xl"
+                      className="products-dropdown-scroll absolute right-0 top-11 w-[24rem] rounded-2xl border border-white/10 bg-[#10232e] p-2 shadow-2xl"
                     >
-                      {partners.map((partner, index) => (
-                        <a key={partner} href="#solutions" onClick={() => setProductsOpen(false)} className="group flex items-center justify-between rounded-xl px-4 py-3 text-sm text-white/65 transition hover:bg-white/7 hover:text-white">
-                          <span>{partner}</span>
-                          <span className="font-mono text-[9px] text-white/20 group-hover:text-[#d9a62e]">0{index + 1}</span>
+                      {productOfferings.map((partner) => (
+                        <a key={partner.slug} href={`/products/${partner.slug}`} onClick={() => setProductsOpen(false)} className="group flex items-center justify-between rounded-xl px-4 py-3 text-sm text-white/65 transition hover:bg-white/7 hover:text-white">
+                          <span>{partner.name}</span>
+                          <span className="font-mono text-[9px] text-white/20 group-hover:text-[#d9a62e]">{partner.number}</span>
                         </a>
                       ))}
                     </motion.div>
@@ -264,7 +266,7 @@ export function TrinityLanding() {
                   ["Home", "#home"],
                   ["Solutions", "#solutions"],
                   ["About", "#about"],
-                  ["Products & Services", "#solutions"],
+                  ["Products & Services", "/products"],
                   ["Contact", "#contact"],
                 ].map(([label, href]) => (
                   <a key={label} href={href} onClick={closeMenu} className="block rounded-2xl px-4 py-4 text-sm text-white/75 hover:bg-white/7 hover:text-white">{label}</a>
@@ -373,13 +375,13 @@ export function TrinityLanding() {
                 const Icon = item.icon;
                 return (
                   <motion.a
-                    href="#contact"
+                    href="/products"
                     key={item.number}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: .15 }}
                     transition={{ delay: index * .06 }}
-                    className={`capability-card capability-${item.accent} group relative min-h-[310px] overflow-hidden border-black/10 p-7 transition md:p-9 ${index < 2 ? "border-b" : ""} ${index % 2 === 0 ? "md:border-r" : ""}`}
+                    className={`capability-card capability-${item.accent} group relative min-h-[310px] overflow-hidden border-black/10 p-7 transition md:p-9 ${index < 2 ? "border-b" : ""} ${index === 2 ? "border-b" : ""} ${index % 2 === 0 && index !== 4 ? "md:border-r" : ""} ${index === 4 ? "md:col-span-2" : ""}`}
                   >
                     <div className="capability-orb absolute -right-16 -top-16 h-48 w-48 rounded-full blur-3xl transition duration-700 group-hover:scale-150" />
                     <div className="relative flex items-start justify-between"><div className="capability-icon flex h-11 w-11 items-center justify-center rounded-2xl"><Icon size={19} /></div><span className="font-mono text-[10px] text-black/20">{item.number}</span></div>
@@ -394,9 +396,23 @@ export function TrinityLanding() {
               <motion.div variants={fadeUp} className="relative overflow-hidden rounded-[2rem] bg-[#0b1821] p-8 text-white md:p-10">
                 <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-[#1677a6]/15 blur-3xl" />
                 <div className="relative"><p className="eyebrow text-white/35">Portfolio architecture</p><h3 className="mt-4 max-w-xl text-3xl font-semibold tracking-[-.04em] md:text-4xl">One network. Multiple industrial applications.</h3><p className="mt-4 max-w-2xl text-sm leading-6 text-white/45">Use this space for a concise explanation of how Trinity connects manufacturers, equipment and customer requirements. Final copy remains a placeholder.</p></div>
-                <div className="relative mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">{['Crushing', 'Washing', 'Road', 'Industrial'].map((x) => <div key={x} className="border-l border-white/10 pl-3 text-xs font-semibold text-white/60">{x}</div>)}</div>
+                <div className="relative mt-10 grid grid-cols-2 gap-4 sm:grid-cols-5">{['Crushing', 'Washing', 'Road', 'Industrial', 'Global trade'].map((x) => <div key={x} className="border-l border-white/10 pl-3 text-xs font-semibold text-white/60">{x}</div>)}</div>
               </motion.div>
               <motion.div variants={fadeUp} className="rounded-[2rem] border border-black/10 bg-[#e9eef0] p-8 md:p-10"><p className="eyebrow">Placeholder asset</p><div className="mt-12 flex min-h-[160px] items-center justify-center rounded-[1.5rem] border border-dashed border-black/15 bg-white/45 text-center"><div><CircleDot className="mx-auto text-[#1677a6]" size={20} /><p className="mt-3 text-sm font-semibold">Product / machinery visual goes here</p><p className="mt-1 text-xs text-black/40">Images will be added in the next content pass.</p></div></div></motion.div>
+            </Reveal>
+
+            <Reveal className="mt-6">
+              <motion.div variants={fadeUp} className="relative overflow-hidden rounded-[2rem] border border-[#55c9a4]/25 bg-gradient-to-br from-[#e7fbf4] via-white to-[#e7f7fa] p-8 shadow-[0_22px_70px_rgba(11,24,33,.08)] md:p-10">
+                <div className="absolute -right-12 -top-20 h-64 w-64 rounded-full bg-[#55c9a4]/18 blur-3xl" />
+                <div className="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+                  <div>
+                    <div className="inline-flex items-center gap-2 rounded-full bg-white/75 px-3 py-2 text-[9px] font-extrabold uppercase tracking-[.2em] text-[#238e6c]"><Globe2 size={12} /> Global trade pathway</div>
+                    <h3 className="mt-5 max-w-3xl text-3xl font-semibold tracking-[-.04em] md:text-5xl">Trinity Imports &amp; Exports Solutions</h3>
+                    <p className="mt-4 max-w-3xl text-sm leading-7 text-black/50">Encouraging foreign trade opportunities alongside our equipment and industrial portfolio. International sourcing, imports, exports, trade routes and supported categories will be detailed here once the final Trinity offering is verified.</p>
+                  </div>
+                  <a href="/products/trinity-imports-exports" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#081923] px-6 py-4 text-sm font-bold text-white hover:bg-[#1688c7]">Explore imports &amp; exports <ArrowRight size={16} /></a>
+                </div>
+              </motion.div>
             </Reveal>
           </div>
         </section>
@@ -433,7 +449,7 @@ export function TrinityLanding() {
             </Reveal>
 
             <div className="mt-16 grid border-y border-white/10 md:grid-cols-4">
-              {[['07', 'Named partner brands'], ['04', 'Solution groups'], ['04', 'Operating areas'], ['01', 'Pune office base']].map(([v, l], i) => <motion.div key={l} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .08 }} className="border-white/10 px-0 py-8 md:border-r md:px-8 first:md:pl-0 last:md:border-r-0"><p className="text-4xl font-semibold tracking-tight text-white md:text-5xl">{v}</p><p className="mt-2 text-[9px] uppercase tracking-[.18em] text-white/30">{l}</p></motion.div>)}
+              {[['10', 'Portfolio offerings'], ['05', 'Solution groups'], ['04', 'Operating areas'], ['01', 'Pune office base']].map(([v, l], i) => <motion.div key={l} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .08 }} className="border-white/10 px-0 py-8 md:border-r md:px-8 first:md:pl-0 last:md:border-r-0"><p className="text-4xl font-semibold tracking-tight text-white md:text-5xl">{v}</p><p className="mt-2 text-[9px] uppercase tracking-[.18em] text-white/30">{l}</p></motion.div>)}
             </div>
             <div className="mt-14 grid gap-5 md:grid-cols-3">
               <div className="rounded-[2rem] border border-white/10 bg-white/[.035] p-7"><p className="text-[9px] font-bold uppercase tracking-[.2em] text-[#d9a62e]">Placeholder · history</p><p className="mt-5 text-sm leading-7 text-white/45">Verified company history, years of operation and milestone information will be inserted once Dad confirms the final content.</p></div>

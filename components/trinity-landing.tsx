@@ -50,7 +50,7 @@ const capabilities = [
     subtitle: "Mobile & stationary systems",
     copy: "Placeholder product copy — final equipment ranges, specifications and applications will be added before launch.",
     icon: Mountain,
-    accent: "gold",
+    accent: "amber",
   },
   {
     number: "02",
@@ -59,7 +59,7 @@ const capabilities = [
     subtitle: "Process equipment for aggregates",
     copy: "Placeholder product copy — final plant configurations and supported applications will be added before launch.",
     icon: Layers3,
-    accent: "blue",
+    accent: "cyan",
   },
   {
     number: "03",
@@ -68,7 +68,7 @@ const capabilities = [
     subtitle: "Plants, sprayers & allied equipment",
     copy: "Placeholder product copy — wet mix, hot mix and bitumen equipment details will be added before launch.",
     icon: Factory,
-    accent: "dark",
+    accent: "blue",
   },
   {
     number: "04",
@@ -77,7 +77,7 @@ const capabilities = [
     subtitle: "Gensets, chemicals & classifiers",
     copy: "Placeholder product copy — final brands, specifications and solution descriptions will be added before launch.",
     icon: Zap,
-    accent: "light",
+    accent: "coral",
   },
 ];
 
@@ -355,7 +355,7 @@ export function TrinityLanding() {
             <span className="hidden shrink-0 text-[9px] font-bold uppercase tracking-[.22em] text-black/30 md:block">Partner network</span>
             <div className="partner-mask min-w-0 overflow-hidden">
               <div className="partner-track flex w-max items-center gap-10">
-                {[...partners, ...partners].map((partner, i) => <span key={`${partner}-${i}`} className="flex items-center gap-3 whitespace-nowrap text-sm font-semibold text-black/48"><span className="h-1 w-1 rounded-full bg-[#d9a62e]" />{partner}</span>)}
+                {[...partners, ...partners].map((partner, i) => <span key={`${partner}-${i}`} className="flex items-center gap-3 whitespace-nowrap text-sm font-semibold text-black/48"><span className="partner-dot h-1.5 w-1.5 rounded-full" />{partner}</span>)}
               </div>
             </div>
           </div>
@@ -364,7 +364,7 @@ export function TrinityLanding() {
         <section id="solutions" className="section-cursor-field relative bg-[#f5f3ee] px-6 py-24 md:py-32">
           <div className="mx-auto max-w-[1380px]">
             <Reveal className="grid gap-10 md:grid-cols-[.78fr_1.22fr] md:items-end">
-              <motion.div variants={fadeUp}><p className="eyebrow">01 · What we do</p><h2 className="section-title mt-4">Solutions built around <span className="text-[#1677a6]">real-world industry.</span></h2></motion.div>
+              <motion.div variants={fadeUp}><p className="eyebrow">01 · What we do</p><h2 className="section-title mt-4">Solutions built around <span className="text-gradient-blue">real-world industry.</span></h2></motion.div>
               <motion.div variants={fadeUp} className="max-w-2xl md:justify-self-end"><p className="section-copy">A diverse portfolio for construction, mining and infrastructure applications. The structure below is ready for the final product catalogue once the imagery and verified product details are supplied.</p></motion.div>
             </Reveal>
 
@@ -379,11 +379,11 @@ export function TrinityLanding() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: .15 }}
                     transition={{ delay: index * .06 }}
-                    className={`capability-card group relative min-h-[310px] overflow-hidden border-black/10 p-7 transition md:p-9 ${index < 2 ? "border-b" : ""} ${index % 2 === 0 ? "md:border-r" : ""} ${item.accent === "dark" ? "bg-[#0b1821] text-white" : "bg-white"}`}
+                    className={`capability-card capability-${item.accent} group relative min-h-[310px] overflow-hidden border-black/10 p-7 transition md:p-9 ${index < 2 ? "border-b" : ""} ${index % 2 === 0 ? "md:border-r" : ""}`}
                   >
-                    <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#d9a62e]/8 blur-3xl transition duration-700 group-hover:scale-150" />
-                    <div className="relative flex items-start justify-between"><div className={`flex h-11 w-11 items-center justify-center rounded-2xl ${item.accent === "dark" ? "bg-white/8 text-[#d9a62e]" : "bg-[#eef5f7] text-[#1677a6]"}`}><Icon size={19} /></div><span className="font-mono text-[10px] text-current/25">{item.number}</span></div>
-                    <div className="relative mt-16"><p className={`text-[9px] font-bold uppercase tracking-[.2em] ${item.accent === "dark" ? "text-[#d9a62e]" : "text-[#1677a6]"}`}>{item.eyebrow}</p><h3 className="mt-3 text-3xl font-semibold tracking-[-.04em]">{item.title}</h3><p className="mt-1 text-sm font-medium text-current/45">{item.subtitle}</p><p className="mt-5 max-w-lg text-sm leading-6 text-current/45">{item.copy}</p></div>
+                    <div className="capability-orb absolute -right-16 -top-16 h-48 w-48 rounded-full blur-3xl transition duration-700 group-hover:scale-150" />
+                    <div className="relative flex items-start justify-between"><div className="capability-icon flex h-11 w-11 items-center justify-center rounded-2xl"><Icon size={19} /></div><span className="font-mono text-[10px] text-black/20">{item.number}</span></div>
+                    <div className="relative mt-16"><p className="capability-eyebrow text-[9px] font-bold uppercase tracking-[.2em]">{item.eyebrow}</p><h3 className="mt-3 text-3xl font-semibold tracking-[-.04em]">{item.title}</h3><p className="mt-1 text-sm font-medium text-black/45">{item.subtitle}</p><p className="mt-5 max-w-lg text-sm leading-6 text-current/45">{item.copy}</p></div>
                     <div className={`absolute bottom-7 left-7 flex items-center gap-2 text-xs font-bold ${item.accent === "dark" ? "text-white" : "text-[#111820]"}`}>View solution <ChevronRight size={15} className="transition-transform group-hover:translate-x-1" /></div>
                   </motion.a>
                 );
@@ -428,7 +428,7 @@ export function TrinityLanding() {
           <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.04)_1px,transparent_1px)] [background-size:70px_70px]" />
           <div className="relative mx-auto max-w-[1380px]">
             <Reveal className="grid gap-14 md:grid-cols-[.85fr_1.15fr] md:items-end">
-              <motion.div variants={fadeUp}><p className="eyebrow text-white/35">03 · About Trinity</p><h2 className="mt-5 max-w-xl text-5xl font-semibold tracking-[-.055em] md:text-7xl">A stronger <span className="text-[#d9a62e]">digital face</span> for an engineering-led business.</h2></motion.div>
+              <motion.div variants={fadeUp}><p className="eyebrow text-white/35">03 · About Trinity</p><h2 className="mt-5 max-w-xl text-5xl font-semibold tracking-[-.055em] md:text-7xl">A stronger <span className="text-gradient-warm">digital face</span> for an engineering-led business.</h2></motion.div>
               <motion.div variants={fadeUp}><p className="max-w-3xl text-lg leading-8 text-white/55">Trinity Enterprises is an Authorised Dealer in Construction & Mining Equipment, representing a diverse portfolio of mobile and stationary crushers, sand washing plants, wet mix and hot mix plants, bitumen sprayers, construction chemicals, gensets, and sand air classifiers.</p><p className="mt-6 max-w-3xl text-base leading-7 text-white/38">The portfolio includes Metso, McCloskey, MechTech Inframine, Berger Paints, IKA Chemicals, Caterpillar and SAAGMO Technologies.</p></motion.div>
             </Reveal>
 
@@ -445,7 +445,7 @@ export function TrinityLanding() {
 
         <section className="section-cursor-field relative bg-white px-6 py-24 md:py-32">
           <div className="mx-auto max-w-[1380px]">
-            <Reveal className="grid gap-10 md:grid-cols-[.7fr_1.3fr] md:items-end"><motion.div variants={fadeUp}><p className="eyebrow">04 · Why Trinity</p><h2 className="section-title mt-4">Built on <span className="text-[#1677a6]">trust, capability and support.</span></h2></motion.div><motion.p variants={fadeUp} className="max-w-2xl text-base leading-7 text-black/45 md:justify-self-end">A visual framework for the proof points that matter to customers evaluating construction and mining equipment partners.</motion.p></Reveal>
+            <Reveal className="grid gap-10 md:grid-cols-[.7fr_1.3fr] md:items-end"><motion.div variants={fadeUp}><p className="eyebrow">04 · Why Trinity</p><h2 className="section-title mt-4">Built on <span className="text-gradient-blue">trust, capability and support.</span></h2></motion.div><motion.p variants={fadeUp} className="max-w-2xl text-base leading-7 text-black/45 md:justify-self-end">A visual framework for the proof points that matter to customers evaluating construction and mining equipment partners.</motion.p></Reveal>
             <div className="mt-16 grid gap-px overflow-hidden rounded-[2rem] border border-black/10 bg-black/10 sm:grid-cols-2 lg:grid-cols-4">
               {reasons.map(([n, title, copy, Icon], i) => {
                 const ReasonIcon = Icon as typeof Network;

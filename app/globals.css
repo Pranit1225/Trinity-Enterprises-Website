@@ -93,3 +93,238 @@ body::before { content:""; position:fixed; inset:0; z-index:90; pointer-events:n
   .hero-machine-panel::after { display:none; }
   .section-cursor-field::before { display:none; }
 }
+
+/* V6 — Color system: brighter, happier, still industrial */
+:root {
+  --blue: #1688c7;
+  --cyan: #18b7c9;
+  --amber: #e5ad28;
+  --coral: #ef765b;
+  --violet: #7a6ff0;
+  --mint: #55c9a4;
+  --navy: #081923;
+  --paper: #f7f6f1;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(100deg, #1688c7 0%, #18b7c9 55%, #55c9a4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-gradient-warm {
+  background: linear-gradient(100deg, #e5ad28 0%, #ef765b 55%, #f2c94c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.partner-dot { background: linear-gradient(135deg, #e5ad28, #ef765b, #18b7c9); box-shadow: 0 0 10px rgba(24,183,201,.2); }
+
+/* Colorful capability cards: every card has its own visual identity. */
+.capability-card {
+  background: rgba(255,255,255,.94);
+  color: #111820;
+  isolation: isolate;
+}
+.capability-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .82;
+  background: linear-gradient(145deg, var(--card-wash, rgba(255,255,255,.8)), rgba(255,255,255,.98) 62%);
+}
+.capability-card::after {
+  background: linear-gradient(120deg, transparent 15%, rgba(255,255,255,.72) 45%, transparent 70%);
+}
+.capability-amber { --card-wash: rgba(229,173,40,.14); --card-accent: #e5ad28; --card-soft: #fff4cf; }
+.capability-cyan { --card-wash: rgba(24,183,201,.13); --card-accent: #18b7c9; --card-soft: #dff8fa; }
+.capability-blue { --card-wash: rgba(22,136,199,.13); --card-accent: #1688c7; --card-soft: #e3f3fb; }
+.capability-coral { --card-wash: rgba(239,118,91,.13); --card-accent: #ef765b; --card-soft: #fff0eb; }
+.capability-orb { background: var(--card-accent); opacity: .09; }
+.capability-icon { background: var(--card-soft); color: var(--card-accent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--card-accent) 14%, transparent); transition: transform .35s ease, box-shadow .35s ease; }
+.capability-card:hover .capability-icon { transform: translateY(-3px) rotate(-4deg); box-shadow: 0 10px 30px color-mix(in srgb, var(--card-accent) 22%, transparent); }
+.capability-eyebrow { color: var(--card-accent); }
+.capability-card h3 { transition: color .25s ease; }
+.capability-card:hover h3 { color: var(--card-accent); }
+
+/* Soft colorful atmosphere behind major sections. */
+.section-cursor-field::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: .8;
+  background:
+    radial-gradient(520px circle at 4% 8%, rgba(24,183,201,.08), transparent 62%),
+    radial-gradient(500px circle at 96% 76%, rgba(239,118,91,.07), transparent 60%),
+    radial-gradient(430px circle at 52% 48%, rgba(229,173,40,.055), transparent 62%);
+}
+
+/* A more expressive partner strip without becoming loud. */
+.partner-track span:nth-child(3n) .partner-dot { background: #18b7c9; }
+.partner-track span:nth-child(3n+1) .partner-dot { background: #e5ad28; }
+.partner-track span:nth-child(3n+2) .partner-dot { background: #ef765b; }
+
+/* Colorful stat/feature surfaces in dark sections. */
+.stat-card-color {
+  background: linear-gradient(135deg, rgba(24,183,201,.12), rgba(255,255,255,.025));
+}
+
+@media (max-width: 767px) {
+  .capability-card { min-height: 280px; }
+  .section-cursor-field::after { opacity: .6; }
+}
+
+/* V6 — brighter color system: happy, premium, still industrial */
+:root {
+  --blue: #1688c7;
+  --cyan: #18b7c9;
+  --amber: #e5ad28;
+  --coral: #ef765b;
+  --violet: #7a6ff0;
+  --mint: #55c9a4;
+  --navy: #081923;
+  --paper: #f7f6f1;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(100deg, #1688c7 0%, #18b7c9 55%, #55c9a4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-gradient-warm {
+  background: linear-gradient(100deg, #e5ad28 0%, #ef765b 55%, #f2c94c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.partner-dot { background: linear-gradient(135deg, #e5ad28, #ef765b, #18b7c9); box-shadow: 0 0 10px rgba(24,183,201,.2); }
+
+/* Every What We Do card now has its own accent instead of one lone dark card. */
+.capability-card {
+  background: rgba(255,255,255,.95);
+  color: #111820;
+  isolation: isolate;
+}
+.capability-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .9;
+  background: linear-gradient(145deg, var(--card-wash, rgba(255,255,255,.8)), rgba(255,255,255,.98) 62%);
+}
+.capability-card::after {
+  background: linear-gradient(120deg, transparent 15%, rgba(255,255,255,.75) 45%, transparent 70%);
+}
+.capability-amber { --card-wash: rgba(229,173,40,.14); --card-accent: #d89e19; --card-soft: #fff2c9; }
+.capability-cyan { --card-wash: rgba(24,183,201,.13); --card-accent: #0e9eaf; --card-soft: #ddf7fa; }
+.capability-blue { --card-wash: rgba(22,136,199,.13); --card-accent: #1688c7; --card-soft: #e2f1fa; }
+.capability-coral { --card-wash: rgba(239,118,91,.13); --card-accent: #e5664d; --card-soft: #ffede8; }
+.capability-orb { background: var(--card-accent); opacity: .1; }
+.capability-icon { background: var(--card-soft); color: var(--card-accent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--card-accent) 14%, transparent); transition: transform .35s ease, box-shadow .35s ease; }
+.capability-card:hover .capability-icon { transform: translateY(-3px) rotate(-4deg); box-shadow: 0 10px 30px color-mix(in srgb, var(--card-accent) 22%, transparent); }
+.capability-eyebrow { color: var(--card-accent); }
+.capability-card h3 { transition: color .25s ease; }
+.capability-card:hover h3 { color: var(--card-accent); }
+
+/* Soft color atmosphere behind major light sections. */
+.section-cursor-field::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: .85;
+  background:
+    radial-gradient(520px circle at 4% 8%, rgba(24,183,201,.08), transparent 62%),
+    radial-gradient(500px circle at 96% 76%, rgba(239,118,91,.07), transparent 60%),
+    radial-gradient(430px circle at 52% 48%, rgba(229,173,40,.055), transparent 62%);
+}
+
+.partner-track span:nth-child(3n) .partner-dot { background: #18b7c9; }
+.partner-track span:nth-child(3n+1) .partner-dot { background: #e5ad28; }
+.partner-track span:nth-child(3n+2) .partner-dot { background: #ef765b; }
+
+@media (max-width: 767px) {
+  .capability-card { min-height: 280px; }
+  .section-cursor-field::after { opacity: .6; }
+}
+
+/* V6 — richer section atmosphere */
+.section-cursor-field { isolation: isolate; }
+
+/* Operating spectrum gets a playful but controlled color system. */
+section.bg-\[\#e8edf0\] { background:
+  radial-gradient(circle at 12% 20%, rgba(24,183,201,.10), transparent 30%),
+  radial-gradient(circle at 88% 72%, rgba(239,118,91,.09), transparent 32%),
+  #eef2f3;
+}
+
+.area-tab:nth-child(1) .font-mono { color: #18b7c9; }
+.area-tab:nth-child(2) .font-mono { color: #e5ad28; }
+.area-tab:nth-child(3) .font-mono { color: #1688c7; }
+.area-tab:nth-child(4) .font-mono { color: #ef765b; }
+.area-tab:nth-child(1):hover { background: rgba(24,183,201,.08); }
+.area-tab:nth-child(2):hover { background: rgba(229,173,40,.08); }
+.area-tab:nth-child(3):hover { background: rgba(22,136,199,.08); }
+.area-tab:nth-child(4):hover { background: rgba(239,118,91,.08); }
+
+/* About section: layered cyan / amber / coral light behind the navy. */
+#about { background:
+  radial-gradient(520px circle at 8% 20%, rgba(24,183,201,.13), transparent 62%),
+  radial-gradient(460px circle at 88% 68%, rgba(239,118,91,.11), transparent 62%),
+  radial-gradient(430px circle at 52% 8%, rgba(229,173,40,.09), transparent 62%),
+  #091720;
+}
+#about .border-white\/10 { border-color: rgba(255,255,255,.12); }
+#about .grid > div:nth-child(1) .text-4xl,
+#about .grid > div:nth-child(1) .text-5xl { color: #18b7c9; }
+#about .grid > div:nth-child(2) .text-4xl,
+#about .grid > div:nth-child(2) .text-5xl { color: #e5ad28; }
+#about .grid > div:nth-child(3) .text-4xl,
+#about .grid > div:nth-child(3) .text-5xl { color: #ef765b; }
+#about .grid > div:nth-child(4) .text-4xl,
+#about .grid > div:nth-child(4) .text-5xl { color: #55c9a4; }
+
+/* Why Trinity: each proof point has a quiet color wash. */
+section:has(.capability-card) + section + section .group:nth-child(1) { background: linear-gradient(145deg, #ffffff, #eefbfc); }
+section:has(.capability-card) + section + section .group:nth-child(2) { background: linear-gradient(145deg, #ffffff, #fff9e9); }
+section:has(.capability-card) + section + section .group:nth-child(3) { background: linear-gradient(145deg, #ffffff, #edf7fc); }
+section:has(.capability-card) + section + section .group:nth-child(4) { background: linear-gradient(145deg, #ffffff, #fff0ec); }
+
+/* Contact: keep Trinity yellow, but give it a richer multi-color glow. */
+#contact { background:
+  radial-gradient(480px circle at 8% 18%, rgba(24,183,201,.16), transparent 60%),
+  radial-gradient(520px circle at 94% 18%, rgba(239,118,91,.16), transparent 60%),
+  linear-gradient(135deg, #e5ad28 0%, #e9b832 52%, #e5ad28 100%);
+}
+#contact::after { opacity: .5; background:
+  radial-gradient(420px circle at 72% 78%, rgba(22,136,199,.12), transparent 62%),
+  radial-gradient(380px circle at 20% 86%, rgba(255,255,255,.13), transparent 62%);
+}
+
+/* Map frame gets a color halo instead of a flat dark container. */
+#contact .overflow-hidden.rounded-\[2rem\].border { box-shadow: 0 30px 90px rgba(8,25,35,.18), 0 0 0 1px rgba(24,183,201,.12); }
+
+/* Footer moves from generic grey to a deliberate branded navy. */
+footer { background:
+  radial-gradient(420px circle at 86% 15%, rgba(24,183,201,.10), transparent 62%),
+  radial-gradient(380px circle at 15% 80%, rgba(229,173,40,.08), transparent 62%),
+  #081923 !important;
+}
+
+@media (max-width: 767px) {
+  #about { background:
+    radial-gradient(380px circle at 4% 15%, rgba(24,183,201,.10), transparent 64%),
+    radial-gradient(360px circle at 96% 75%, rgba(239,118,91,.08), transparent 64%),
+    #091720;
+  }
+}

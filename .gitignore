@@ -6,3 +6,9 @@ out/
 .DS_Store
 *.log
 npm-debug.log*
+
+.env
+.env.local
+.dev.vars
+.wrangler/
+.open-next/

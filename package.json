@@ -1,6 +1,6 @@
 {
   "name": "trinity-enterprises-web",
-  "version": "0.1.0",
+  "version": "0.11.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "preflight": "node scripts/preflight.mjs"
   },
   "dependencies": {
     "next": "latest",
@@ -30,5 +31,8 @@
     "tailwindcss": "latest",
     "typescript": "latest",
     "wrangler": "latest"
+  },
+  "engines": {
+    "node": ">=20.9.0"
   }
 }
